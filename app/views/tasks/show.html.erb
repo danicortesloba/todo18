@@ -2,13 +2,30 @@
   <div class ="row">
         <div class="col">
           <table class="table">
-    <% @names.each do |n| %>
-    <tr><td><%= n %> </td> </tr>
-      <% end %>
+          <% y = 0 %>
+          <h1>Los top 5</h1>
+          <% @people.first(5).each do |p| %>
+          <tr>
+          <td><%="#{y + 1}" %>
+          <td><%= p.name %> </td>
+          <td><%= image_tag(p.photo) %> </td>
+          </tr>
+          <% end %>
           </table>
-        </div>
+          </div>
+          </div>
+        <div class ="row">
+              <div class="col">
+                <h1>Todos los que la completaron</h1>
+                <table class="table">
+                <% @people.each do |p| %>
+                <tr>
+                <td><%= p.name %> </td>
+                </tr>
+                <% end %>
+                </table>
+            </div>
 
-     <div class="w-100" style="margin-top:20px"></div>
 
   </div>
 </div>

@@ -7,7 +7,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def show
      @task = Task.find(params[:id])
-     @names = @task.users.pluck(:name)
+     @people = @task.users
   end
 
   def complete
