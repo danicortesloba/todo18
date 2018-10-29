@@ -9,12 +9,16 @@
               <div class="card-body">
                 <h5> <%= task.name%></h5>
                 <p><%= link_to "Mostrar", task, class: 'btn btn-primary' %>
-                <% if task.users.include?(current_user) %>
-                <p> ¡Esta tarea ya está completa!</p>
-                <%= link_to 'Incompleta', tasks_incomplete_path(task), class: 'btn btn-warning', method: :delete %>
-                <% else %>
-                <p>¡Esta tarea aún no está completa!</p>
-                <%= link_to 'Completa', tasks_complete_path(task), class: 'btn btn-success' %>
+                <%if user_signed_in?%>
+                  <% if task.users.include?(current_user) %>
+                  <p> ¡Esta tarea ya está completa!</p>
+                  <%= link_to 'Marcar Como Incompleta', tasks_incomplete_path(task), class: 'btn btn-warning', method: :delete %>
+                  <% else %>
+                  <p>¡Esta tarea aún no está completa!</p>
+                  <%= link_to 'Marcar Como Completa', tasks_complete_path(task), class: 'btn btn-success' %>
+                  <% end %>
+                <%else%>
+                  <p>Loggeate para ver tus tareas listas</p>
                 <% end %>
               </div>
           </div>

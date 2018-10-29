@@ -2,10 +2,9 @@
   <div class ="row">
         <div class="col">
           <table class="table">
-
-          <% @task.users.pluck(:name).each do  |name| %>
-          <tr><td><%= name %> </td> </tr>
-          <% end %>
+    <% @names.each do |n| %>
+    <tr><td><%= n %> </td> </tr>
+      <% end %>
           </table>
         </div>
 
