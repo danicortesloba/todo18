@@ -8,6 +8,8 @@
             <%= image_tag task.photo, class:"card-img-top"%>
               <div class="card-body">
                 <h5> <%= task.name%></h5>
+                <%= link_to 'Completa', tasks_complete_path(task), class: 'btn btn-success' %>
+                <%= link_to 'Incompleta', tasks_incomplete_path(task), class: 'btn btn-warning', method: :delete %>
               </div>
           </div>
         </div>
