@@ -1,30 +1,34 @@
 <div class="container">
   <div class ="row">
-        <div class="col">
-          <table class="table">
-          <% y = 0 %>
-          <h1>Los top 5</h1>
-          <% @people.first(5).each do |p| %>
-          <tr>
-          <td><%="#{y + 1}" %>
-          <td><%= p.name %> </td>
-          <td><%= image_tag(p.photo) %> </td>
-          </tr>
-          <% end %>
-          </table>
-          </div>
-          </div>
-        <div class ="row">
-              <div class="col">
-                <h1>Todos los que la completaron</h1>
-                <table class="table">
-                <% @people.each do |p| %>
-                <tr>
-                <td><%= p.name %> </td>
-                </tr>
-                <% end %>
-                </table>
+    <h1>Los top 5 de esta tarea</h1>
+  </div>
+  <div class ="row">
+    <% y = 0 %>
+      <% @people.first(5).each do |p| %>
+          <div class="col-md-2">
+            <div class="card">
+              <%= image_tag p.photo, class:"card-img-top"%>
+              <div class="card-body">
+                <td><%="#{y += 1}" %>
+                  <h5> <%= p.name%></h5>
+              </div>
             </div>
+          </div>
+      <% end %>
+   </div>
+
+   <div class ="row">
+     <div class="col">
+       <h1>Todos los que la completaron</h1>
+       <table class="table">
+         <% @people.each do |p| %>
+          <tr>
+            <td><%= p.name %> </td>
+          </tr>
+         <% end %>
+        </table>
+      </div>
+    </div>
 
 
   </div>
