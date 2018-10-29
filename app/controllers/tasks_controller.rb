@@ -7,7 +7,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   def show
      @task = Task.find(params[:id])
   end
-  
+
   def complete
   @task = Task.find(params[:id])
   @task.users << current_user
